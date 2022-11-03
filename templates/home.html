@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="http://127.0.0.1:5000">Let's Movie Out</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" href="http://127.0.0.1:5000/manual" href="">manual</a>
+            </li>
+            {% block markdown %}
+                <div class="btn-group">
+                    <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    장르
+                    </button>
+                    <ul class="dropdown-menu">
+                        {% for genre in genre_list %}
+                        <li><a class="dropdown-item" href="http://127.0.0.1:5000/search/{{genre}}">{{genre}}</a></li>
+                        {% endfor %}
+                    </ul>
+                    <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    키워드
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">장르를 먼저 선택</a></li>
+                    </ul>
+                </div>
+            {% endblock %}
+            </ul>
+
+            </form>
+          </div>
+        </div>
+    </nav>
+    {% block abong %}
+    
+        <figure class="text-center">
+            <blockquote class="blockquote">
+            <p><h1>Let's Movie Out</h1>
+                <h1></h1>
+                <hr>
+                <h2>Let's Movie Out소개</h2>
+                    <h4>Let's Movie Out은 네이버 영화데이터와 리뷰 텍스트 데이터를 기반으로 여러분께 영화를 추천 해주는 서비스 입니다.</h4>
+                <h1></h1>
+                <hr>
+                <h2>이용 방법</h2>
+                    <h4> 상단 드롭다운을 클릭하여 원하시는 장르와 키워드를 선택해 주시면 됩니다. </h4>
+                </p>
+            </blockquote>
+            <figcaption class="blockquote-footer">
+            sectio3 project <cite title="Source Title"> </cite>
+            </figcaption>
+        </figure>
+    {% endblock %}    
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>

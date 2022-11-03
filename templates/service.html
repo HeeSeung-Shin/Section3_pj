@@ -1,0 +1,219 @@
+{% extends 'home.html'%}
+{% block markdown %}
+<div class="btn-group">
+    <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    {{genre}}
+    </button>
+    <ul class="dropdown-menu">
+        {% for genre in genre_list %}
+        <li><a class="dropdown-item" href="http://127.0.0.1:5000/search/{{genre}}">{{genre}}</a></li>
+        {% endfor %}
+    </ul>
+    <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    {% if True %}
+    {{keyword}}
+    {% endif %}
+    키워드
+    </button>
+    <ul class="dropdown-menu">
+        {% for keyword in keywords_list %}
+        <!-- <li><a class="dropdown-item" href="http://127.0.0.1:5000/{{genre}}">{{genre}}</a></li> -->
+        <li><a class="dropdown-item" href="http://127.0.0.1:5000/search/{{genre}}/{{keyword}}">{{keyword}}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
+
+{% block abong %}
+{% endblock %}
+
+{% block content %}
+
+{% if 10> length %}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">영화 제목</th>
+        {% for title in title_list %}
+        <td>{{title}}</td>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">포스터</th>
+        {% for image in image_list %}
+        <td><img src={{image}}></td>
+        {% endfor %}
+      </tr>
+      <tr>
+        <th scope="row">개봉일</th>
+        {% for date in date_list %}
+        <td>{{date}}</td>
+        {% endfor %}
+      </tr>
+      <tr>
+        <th scope="row">장르</th>
+        {% for movie_genre in movie_genre_list %}
+        <td>{{movie_genre}}</td>
+        {% endfor %}
+      </tr>
+      <tr>
+        <th scope="row">감독</th>
+        {% for director in director_list %}
+        <td>{{director}}</td>
+        {% endfor %}
+      </tr>
+      <tr>
+        <th scope="row">배우</th>
+        {% for actor in actor_list %}
+        <td>{{actor}}</td>
+        {% endfor %}
+      </tr>
+      <tr>
+        <th scope="row">리뷰 긍정도</th>
+        {% for pos in pos_list %}
+        <td>{{pos}}%</td>
+        {% endfor %}
+      </tr>
+      <tr>
+        <th scope="row">긍정 키워드</th>
+        {% for posk in posk_list %}
+        <td>{{posk}}</td>
+        {% endfor %}
+      </tr>
+      <tr>
+        <th scope="row">부정 키워드</th>
+        {% for negk in negk_list %}
+        <td>{{negk}}</td>
+        {% endfor %}
+      </tr>
+
+    </tbody>
+  </table>
+  {% else %}
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">영화 제목</th>
+        {% for title in title_list[:10] %}
+        <td>{{title}}</td>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">포스터</th>
+        {% for image in image_list[:10] %}
+        <td><img src={{image}}></td>
+        {% endfor %}
+      </tr>
+      <tr>
+        <th scope="row">개봉일</th>
+        {% for date in date_list[:10] %}
+        <td>{{date}}</td>
+        {% endfor %}
+      </tr>
+      <tr>
+        <th scope="row">장르</th>
+        {% for movie_genre in movie_genre_list[:10] %}
+        <td>{{movie_genre}}</td>
+        {% endfor %}
+      </tr>
+      <tr>
+        <th scope="row">감독</th>
+        {% for director in director_list[:10] %}
+        <td>{{director}}</td>
+        {% endfor %}
+      </tr>
+      <tr>
+        <th scope="row">배우</th>
+        {% for actor in actor_list[:10] %}
+        <td>{{actor}}</td>
+        {% endfor %}
+      </tr>
+      <tr>
+        <th scope="row">리뷰 긍정도</th>
+        {% for pos in pos_list[:10] %}
+        <td>{{pos}}%</td>
+        {% endfor %}
+      </tr>
+      <tr>
+        <th scope="row">긍정 키워드</th>
+        {% for posk in posk_list[:10] %}
+        <td>{{posk}}</td>
+        {% endfor %}
+      </tr>
+      <tr>
+        <th scope="row">부정 키워드</th>
+        {% for negk in negk_list[:10] %}
+        <td>{{negk}}</td>
+        {% endfor %}
+      </tr>
+
+    </tbody>
+  </table>
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">영화 제목</th>
+        {% for title in title_list[10:] %}
+        <td>{{title}}</td>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">포스터</th>
+        {% for image in image_list[10:] %}
+        <td><img src={{image}}></td>
+        {% endfor %}
+      </tr>
+      <tr>
+        <th scope="row">개봉일</th>
+        {% for date in date_list[10:] %}
+        <td>{{date}}</td>
+        {% endfor %}
+      </tr>
+      <tr>
+        <th scope="row">장르</th>
+        {% for movie_genre in movie_genre_list[10:] %}
+        <td>{{movie_genre}}</td>
+        {% endfor %}
+      </tr>
+      <tr>
+        <th scope="row">감독</th>
+        {% for director in director_list[10:] %}
+        <td>{{director}}</td>
+        {% endfor %}
+      </tr>
+      <tr>
+        <th scope="row">배우</th>
+        {% for actor in actor_list[10:] %}
+        <td>{{actor}}</td>
+        {% endfor %}
+      </tr>
+      <tr>
+        <th scope="row">리뷰 긍정도</th>
+        {% for pos in pos_list[10:] %}
+        <td>{{pos}}%</td>
+        {% endfor %}
+      </tr>
+      <tr>
+        <th scope="row">긍정 키워드</th>
+        {% for posk in posk_list[10:] %}
+        <td>{{posk}}</td>
+        {% endfor %}
+      </tr>
+      <tr>
+        <th scope="row">부정 키워드</th>
+        {% for negk in negk_list[10:] %}
+        <td>{{negk}}</td>
+        {% endfor %}
+      </tr>
+
+    </tbody>
+  </table>
+  {% endif %}
+{% endblock %}    
